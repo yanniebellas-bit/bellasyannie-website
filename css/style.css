@@ -1,0 +1,145 @@
+/* Custom properties for easy color changes */
+:root {
+    --bg-color: #121212; /* Dark background */
+    --text-color: #f0f0f0; /* Light text */
+    --accent-color-1: #00bcd4; /* Cyan/Blue */
+    --accent-color-2: #ff4081; /* Pink/Red */
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Global Reset and Body Styling */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 40px;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--accent-color-1);
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9em;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 1;
+    color: var(--accent-color-2);
+}
+
+/* Main Content Area - THE UNIQUE PART */
+.content {
+    background-color: rgba(30, 30, 30, 0.8); /* Slightly lighter dark background for contrast */
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle lift */
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* To contain the pseudo-element's glow */
+}
+
+/* Unique Gradient Glow/Border Effect */
+.content::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: linear-gradient(45deg, var(--accent-color-1) 0%, var(--accent-color-2) 50%, transparent 100%);
+    z-index: -1; /* Place behind the main content */
+    filter: blur(50px); /* The unique glow effect */
+    opacity: 0.2; /* Subtle visibility */
+    transition: opacity 0.5s;
+}
+
+.content:hover::before {
+    opacity: 0.4; /* Make the glow a bit stronger on hover */
+}
+
+h2 {
+    font-size: 2.5em;
+    border-bottom: 2px solid var(--accent-color-2);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.content-image {
+   
+    width: 350px; 
+    
+  
+    height: 400px;
+    
+    border-radius: 6px; 
+    margin: 20px auto 30px auto; 
+    display: block; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    
+    
+    object-fit: cover; 
+}
+
+
+p {
+    line-height: 1.6;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Button */
+#uniqueButton {
+    background-color: var(--accent-color-1);
+    color: var(--bg-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#uniqueButton:hover {
+    background-color: var(--accent-color-2);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 0.8em;
+    opacity: 0.5;
+}
